@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Weather App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        img{
+            height:40px;
+            width:40px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+          </a>
+        </div>
+      </nav>
+      <div class="container-fluid">
+        <div class="row mb-3">
+            <div class="col-md-4 offset-md-4">
+               <div class="card">
+                <div class="card-header">বর্তমান শহর</div>
+                <div class="card-body">
+                    <form action="" class="form form-horizontal">
+                        <div class="row ">
+                            <label for="City" class="col-form-label col-md-3">Select City</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="InputCity" name="City">
+                            </div>
+                            <div class="col-md-2">
+                                <input type="button" name="submit" value="Get Data" id="FormBtn" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+               </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-8">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                আমার শহর 
+                            </div>
+                            <div class="card-body">
+                                
+                                <table class="table table-responsive table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td>শহর</td>
+                                            <td id="city"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>দেশ</td>
+                                            <td id="country"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>টাইম জোন</td>
+                                            <td id="tz"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lattitute</td>
+                                            <td id="lat"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Longitute</td>
+                                            <td id="lon"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>স্থানীয় সময়</td>
+                                            <td id="lt"></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                এই মুহুর্তের আবহাওয়া
+                            </div>
+                            <div class="card-body">
+                                
+                                <table class="table table-responsive table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td>তাপমাত্রা</td>
+                                            <td id="tempc"></td>
+                                            <td id="tempf"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>রিয়েল ফিল</td>
+                                            <td id="feelslikec"></td>
+                                            <td id="feelslikef"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>আকাশের অবস্থা</td>
+                                            <td id="skyconditiontxt"></td>
+                                            <td id="skyconditionimg"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>বাতাসের আদ্রতা</td>
+                                            <td id="humidity" colspan="2"></td>
+                                        </tr>
+                                        <!-- <tr>
+                                            <td>এখন</td>
+                                            <td id="now" colspan="2" colspan="2" ></td>
+                                        </tr> -->
+                                        <tr>
+                                            <td>UV Index</td>
+                                            <td id="uv" colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>বাতাসের গতিবেগ</td>
+                                            <td id="wind_kph"></td>
+                                            <td id="wind_mph"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                চন্দ্র সূর্যের উদয় অস্ত
+                            </div>
+                            <div class="card-body">
+                                
+                                <table class="table table-responsive table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td>সূর্যোদয়</td>
+                                            <td id="sunrise"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>সূর্যাস্ত</td>
+                                            <td id="sunset"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>চন্দ্র উদয়</td>
+                                            <td id="moonrise"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>চন্দ্র অস্ত </td>
+                                            <td id="moonset"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>এই মূহুর্তে চন্দ্রের অবস্থা</td>
+                                            <td id="moon_phase"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>চন্দ্রের ঊজ্জ্বল্য</td>
+                                            <td id="moon_illumination"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+        
+                                                   
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        সারাদিনের আবহাওয়া
+                    </div>
+                    <div class="card-body">
+                        
+                        <table class="table table-responsive table-bordered">
+                            <tbody id="forecast">
+                                <tr>
+                                    <td>সর্বোচ্চ তাপমাত্রা </td>
+                                    <td id="f_maxtemp_c"></td>
+                                    <td id="f_maxtemp_f"></td>
+                                </tr>
+                                <tr>
+                                    <td>সর্বনিম্ন তাপমাত্রা</td>
+                                    <td id="f_mintemp_c"></td>
+                                    <td id="f_mintemp_f"></td>
+                                </tr>
+                                <tr>
+                                    <td>গড় তাপমাত্রা</td>
+                                    <td id="f_avgtemp_c"></td>
+                                    <td id="f_avgtemp_f"></td>
+                                </tr>
+                                <tr>
+                                    <td>সর্বোচ্চ বাতাসের গতি</td>
+                                    <td id="f_maxwind_kph"></td>
+                                    <td id="f_maxwind_mph"></td>
+                                </tr>
+                                <tr>
+                                    <td>আকাশের অবস্থা</td>
+                                    <td id="f_skycondition_text"></td>
+                                    <td id="f_skycondition_img"></td>
+                                </tr>
+                                <tr>
+                                    <td>বাতাসের গড় আদ্রতা</td>
+                                    <td id="f_avg_humidity" colspan="2"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+      </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="src/script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
